@@ -32,7 +32,7 @@ public class ArticuloController {
         articuloService.createArticle(articulosModel);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public void updateArticulo(@RequestBody ArticulosModel articulosModel, @PathVariable Long id){
         articuloService.updateArticle(articulosModel, id);
     }
