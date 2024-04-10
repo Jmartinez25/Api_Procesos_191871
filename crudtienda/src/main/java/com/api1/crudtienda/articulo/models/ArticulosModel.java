@@ -1,5 +1,6 @@
 package com.api1.crudtienda.articulo.models;
 
+import com.api1.crudtienda.categoria.models.CategoriaModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NonNull;
@@ -26,4 +27,7 @@ public class ArticulosModel {
 
     private String estadoArticulo;
 
+    @ManyToOne
+    @JoinColumn(name = "categoriaModel")
+    private CategoriaModel categoriaModel;
 }

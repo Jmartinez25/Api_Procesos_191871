@@ -33,6 +33,7 @@ public class ArticuloService {
         articleExist.get().setPrecio(articulo.getPrecio());
         articleExist.get().setStock(articulo.getStock());
         articleExist.get().setEstadoArticulo(articulo.getEstadoArticulo());
+        articleExist.get().setCategoriaModel(articulo.getCategoriaModel());
         return articuloRepository.save(articleExist.get());
     }
 
