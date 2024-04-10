@@ -1,9 +1,8 @@
-package com.api1.crudtienda.services;
+package com.api1.crudtienda.articulo.services;
 
-import com.api1.crudtienda.models.ArticulosModel;
-import com.api1.crudtienda.repositories.IArticuloRepository;
+import com.api1.crudtienda.articulo.models.ArticulosModel;
+import com.api1.crudtienda.articulo.repositories.IArticuloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,10 +28,11 @@ public class ArticuloService {
     public ArticulosModel updateArticle(ArticulosModel articulo, Long id){
         Optional<ArticulosModel> articleExist = articuloRepository.findById(id);
 
-        articleExist.get().setName(articulo.getName());
-        articleExist.get().setDescription(articulo.getDescription());
-        articleExist.get().setPrice(articulo.getPrice());
+        articleExist.get().setNombreArticulo(articulo.getNombreArticulo());
+        articleExist.get().setDescripcionArticulo(articulo.getDescripcionArticulo());
+        articleExist.get().setPrecio(articulo.getPrecio());
         articleExist.get().setStock(articulo.getStock());
+        articleExist.get().setEstadoArticulo(articulo.getEstadoArticulo());
         return articuloRepository.save(articleExist.get());
     }
 

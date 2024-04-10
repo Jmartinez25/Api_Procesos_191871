@@ -1,6 +1,6 @@
-package com.api1.crudtienda.repositories;
+package com.api1.crudtienda.articulo.repositories;
 
-import com.api1.crudtienda.models.ArticulosModel;
+import com.api1.crudtienda.articulo.models.ArticulosModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,14 +1,11 @@
-package com.api1.crudtienda.controllers;
+package com.api1.crudtienda.articulo.controllers;
 
-import com.api1.crudtienda.models.ArticulosModel;
-import com.api1.crudtienda.services.ArticuloService;
+import com.api1.crudtienda.articulo.services.ArticuloService;
+import com.api1.crudtienda.articulo.models.ArticulosModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/articulos")

@@ -1,4 +1,4 @@
-package com.api1.crudtienda.models;
+package com.api1.crudtienda.articulo.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,12 +16,14 @@ public class ArticulosModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nombreArticulo;
 
-    private String description;
+    private String descripcionArticulo;
 
     private Number stock;
 
-    private String price;
+    private double precio;
+
+    private String estadoArticulo;
 
 }
