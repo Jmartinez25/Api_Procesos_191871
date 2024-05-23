@@ -30,7 +30,7 @@ public class ArticuloController {
         return new ResponseEntity<>(articuloService.findAllArticle(), HttpStatus.OK);
     }
 
-    @PostMapping("/")
+    @PostMapping("/crear")
     public ResponseEntity<ResponseGeneric> createArticulo(@RequestBody ArticulosModel articulosModel){
         return new ResponseEntity<>(articuloService.createArticle(articulosModel),HttpStatus.OK);
     }
