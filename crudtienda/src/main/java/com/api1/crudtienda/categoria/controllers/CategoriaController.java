@@ -33,7 +33,7 @@ public class CategoriaController {
         return new ResponseEntity<>(categoriaService.findAllCategoria(), HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping(value = "/crear")
     public ResponseEntity<ResponseGeneric> createCategoria(@RequestBody RequestGeneric<CategoriaModel> requestGeneric) {
         return new ResponseEntity<>(categoriaService.CreateCategoria(requestGeneric.getData()), HttpStatus.OK);
     }
