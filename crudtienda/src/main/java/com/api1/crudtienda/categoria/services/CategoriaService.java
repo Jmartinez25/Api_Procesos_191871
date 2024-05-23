@@ -3,7 +3,7 @@ package com.api1.crudtienda.categoria.services;
 import com.api1.crudtienda.RequestResponseGeneric.ResponseGeneric;
 import com.api1.crudtienda.articulo.models.ArticulosModel;
 import com.api1.crudtienda.categoria.models.CategoriaModel;
-import com.api1.crudtienda.categoria.repositories.CategoriaRepository;
+import com.api1.crudtienda.categoria.repositories.ICategoriaRepository;
 import com.api1.crudtienda.exception.exceptions.BadRequestException;
 import com.api1.crudtienda.exception.exceptions.NotFoundExeption;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,9 @@ import java.util.Optional;
 
 @Service
 public class CategoriaService {
-    private final CategoriaRepository categoriaRepository;
+    private final ICategoriaRepository categoriaRepository;
 
-    public CategoriaService(CategoriaRepository categoriaRepository) {
+    public CategoriaService(ICategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
     }
 

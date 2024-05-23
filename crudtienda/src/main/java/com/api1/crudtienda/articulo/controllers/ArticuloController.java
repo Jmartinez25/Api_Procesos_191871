@@ -1,8 +1,10 @@
 package com.api1.crudtienda.articulo.controllers;
 
+import com.api1.crudtienda.RequestResponseGeneric.RequestGeneric;
 import com.api1.crudtienda.RequestResponseGeneric.ResponseGeneric;
 import com.api1.crudtienda.articulo.services.ArticuloService;
 import com.api1.crudtienda.articulo.models.ArticulosModel;
+import com.api1.crudtienda.categoria.models.CategoriaModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +33,8 @@ public class ArticuloController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<ResponseGeneric> createArticulo(@RequestBody ArticulosModel articulosModel){
-        return new ResponseEntity<>(articuloService.createArticle(articulosModel),HttpStatus.OK);
+    public ResponseEntity<ResponseGeneric> createArticulo(@RequestBody RequestGeneric<ArticulosModel> articulosModel){
+        return new ResponseEntity<>(articuloService.createArticle(articulosModel.getData()),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
