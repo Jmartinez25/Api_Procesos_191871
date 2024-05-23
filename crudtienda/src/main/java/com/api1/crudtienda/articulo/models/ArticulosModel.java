@@ -21,7 +21,7 @@ public class ArticulosModel {
 
     private String descripcionArticulo;
 
-    private Number stock;
+    private Integer stock;
 
     private double precio;
 

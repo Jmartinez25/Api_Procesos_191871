@@ -1,8 +1,11 @@
 package com.api1.crudtienda.articulo.controllers;
 
+import com.api1.crudtienda.RequestResponseGeneric.ResponseGeneric;
 import com.api1.crudtienda.articulo.services.ArticuloService;
 import com.api1.crudtienda.articulo.models.ArticulosModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,33 +14,36 @@ import java.util.List;
 @RequestMapping("/articulos")
 public class ArticuloController {
 
-    @Autowired
-    private ArticuloService articuloService;
+    private final ArticuloService articuloService;
+
+    public ArticuloController(ArticuloService articuloService) {
+        this.articuloService = articuloService;
+    }
 
     @GetMapping("/{id}")
-    public ArticulosModel getById(@PathVariable Long id){
-       return articuloService.getArticleById(id);
+    public ResponseEntity<ResponseGeneric> getById(@PathVariable Long id){
+        return new ResponseEntity<>(articuloService.getArticleById(id), HttpStatus.OK);
     }
 
-    @GetMapping
-    public List<ArticulosModel> getAll(){
-        return articuloService.findAllArticle();
+    @GetMapping("/all")
+    public ResponseEntity<ResponseGeneric> getAll(){
+        return new ResponseEntity<>(articuloService.findAllArticle(), HttpStatus.OK);
     }
 
-    @PostMapping
-    public void createArticulo(@RequestBody ArticulosModel articulosModel){
-        articuloService.createArticle(articulosModel);
+    @PostMapping("/")
+    public ResponseEntity<ResponseGeneric> createArticulo(@RequestBody ArticulosModel articulosModel){
+        return new ResponseEntity<>(articuloService.createArticle(articulosModel),HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public void updateArticulo(@RequestBody ArticulosModel articulosModel, @PathVariable Long id){
-        articuloService.updateArticle(articulosModel, id);
+    public ResponseEntity<ResponseGeneric> updateArticulo(@RequestBody ArticulosModel articulosModel, @PathVariable Long id){
+        return new ResponseEntity<>(articuloService.updateArticle(articulosModel, id),HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteArticulo(@PathVariable("id") Long id){
+    public ResponseEntity<HttpStatus> deleteArticulo(@PathVariable("id") Long id){
         articuloService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 
 }

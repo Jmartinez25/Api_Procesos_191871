@@ -15,4 +15,5 @@ public interface ICategoriaRepository extends CrudRepository<CategoriaModel, Lon
     @Query("SELECT a FROM ArticulosModel a WHERE a.categoriaModel = :categoriaModel")
     List<ArticulosModel> findAllArticlesByCategory(@Param("categoriaModel") CategoriaModel categoriaModel);
 
+    boolean existsByNombreCategoriaIgnoreCase(String nameCategory);
 }
